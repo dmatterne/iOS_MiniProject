@@ -163,14 +163,23 @@ class GameListTableViewController: UITableViewController, URLSessionDelegate, UR
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let dest = segue.destination as! GameDetailViewController
+        
+        let index = tableView.indexPath(for: sender as! UITableViewCell)
+        
+        dest.selectedGame = gameArray[index!.row]
+        
+        
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
