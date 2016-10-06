@@ -13,6 +13,11 @@
 		8254B57B1DA53F81004E3D29 /* IGDBGameApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8254B5791DA53F81004E3D29 /* IGDBGameApp.xcdatamodeld */; };
 		8254B57D1DA53F81004E3D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8254B57C1DA53F81004E3D29 /* Assets.xcassets */; };
 		8254B5801DA53F81004E3D29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8254B57E1DA53F81004E3D29 /* LaunchScreen.storyboard */; };
+		82F40C2A1DA62DC800362B20 /* GameListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C291DA62DC800362B20 /* GameListTableViewController.swift */; };
+		82F40C411DA62EB500362B20 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C401DA62EB500362B20 /* Games.swift */; };
+		82F40C4B1DA637FE00362B20 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C4A1DA637FE00362B20 /* APIService.swift */; };
+		82F40C521DA64DF600362B20 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */; };
+		82F40C531DA64DF600362B20 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		8254B57C1DA53F81004E3D29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8254B57F1DA53F81004E3D29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8254B5811DA53F81004E3D29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82F40C291DA62DC800362B20 /* GameListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListTableViewController.swift; sourceTree = "<group>"; };
+		82F40C401DA62EB500362B20 /* Games.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		82F40C4A1DA637FE00362B20 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Game+CoreDataClass.swift"; path = "../Game+CoreDataClass.swift"; sourceTree = "<group>"; };
+		82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Game+CoreDataProperties.swift"; path = "../Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 		8254B5711DA53F81004E3D29 /* IGDBGameApp */ = {
 			isa = PBXGroup;
 			children = (
+				82F40C3F1DA62E8000362B20 /* DBFiles */,
 				8254B5721DA53F81004E3D29 /* AppDelegate.swift */,
 				8254B5741DA53F81004E3D29 /* ViewController.swift */,
 				8254B5761DA53F81004E3D29 /* Main.storyboard */,
@@ -63,8 +74,20 @@
 				8254B57E1DA53F81004E3D29 /* LaunchScreen.storyboard */,
 				8254B5811DA53F81004E3D29 /* Info.plist */,
 				8254B5791DA53F81004E3D29 /* IGDBGameApp.xcdatamodeld */,
+				82F40C291DA62DC800362B20 /* GameListTableViewController.swift */,
+				82F40C401DA62EB500362B20 /* Games.swift */,
+				82F40C4A1DA637FE00362B20 /* APIService.swift */,
 			);
 			path = IGDBGameApp;
+			sourceTree = "<group>";
+		};
+		82F40C3F1DA62E8000362B20 /* DBFiles */ = {
+			isa = PBXGroup;
+			children = (
+				82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */,
+				82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */,
+			);
+			name = DBFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F40C411DA62EB500362B20 /* Games.swift in Sources */,
 				8254B5751DA53F81004E3D29 /* ViewController.swift in Sources */,
 				8254B5731DA53F81004E3D29 /* AppDelegate.swift in Sources */,
+				82F40C4B1DA637FE00362B20 /* APIService.swift in Sources */,
+				82F40C521DA64DF600362B20 /* Game+CoreDataClass.swift in Sources */,
 				8254B57B1DA53F81004E3D29 /* IGDBGameApp.xcdatamodeld in Sources */,
+				82F40C531DA64DF600362B20 /* Game+CoreDataProperties.swift in Sources */,
+				82F40C2A1DA62DC800362B20 /* GameListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +331,7 @@
 				8254B5861DA53F81004E3D29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
