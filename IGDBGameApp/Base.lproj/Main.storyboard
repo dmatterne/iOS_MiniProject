@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xsv-Qr-Njk" id="f3P-W7-KIp">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -94,7 +94,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="134" id="1hi-IL-WuJ"/>
                                         </constraints>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -119,27 +119,47 @@
                                     <constraint firstAttribute="width" constant="150" id="SLp-CV-oIB"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCM-va-BXf">
+                                <state key="normal" title="Add Favorite"/>
+                                <connections>
+                                    <action selector="addToFavorites:" destination="sbB-Ol-dQP" eventType="touchUpInside" id="kOq-ej-5FB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJL-PN-rph">
+                                <state key="normal" title="Remove Favorite"/>
+                                <connections>
+                                    <action selector="removeFromFavorites:" destination="sbB-Ol-dQP" eventType="touchUpInside" id="YcR-c3-q5W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PJL-PN-rph" firstAttribute="top" secondItem="rfa-xE-bVx" secondAttribute="bottom" constant="30" id="3S9-bZ-eIc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PJL-PN-rph" secondAttribute="leading" id="7Ic-Ea-j8s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RBy-Z3-Nmj" secondAttribute="trailing" id="89F-rw-9fc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="d1m-Rv-CQR" secondAttribute="trailing" id="Bmv-gT-wJA"/>
                             <constraint firstItem="sAv-w9-rky" firstAttribute="leading" secondItem="gY6-bH-RSO" secondAttribute="leadingMargin" id="BuX-sk-oLS"/>
                             <constraint firstItem="RBy-Z3-Nmj" firstAttribute="top" secondItem="d1m-Rv-CQR" secondAttribute="bottom" constant="15" id="Le0-KK-XkS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sAv-w9-rky" secondAttribute="trailing" id="M4b-n2-Mr8"/>
                             <constraint firstItem="15j-Li-31c" firstAttribute="centerX" secondItem="gY6-bH-RSO" secondAttribute="centerX" id="eGJ-hU-XIn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YCM-va-BXf" secondAttribute="trailing" id="hkn-Vh-ja3"/>
                             <constraint firstItem="sAv-w9-rky" firstAttribute="top" secondItem="uR7-Gx-ddV" secondAttribute="bottom" constant="180" id="lcb-aq-1fZ"/>
                             <constraint firstItem="RBy-Z3-Nmj" firstAttribute="leading" secondItem="gY6-bH-RSO" secondAttribute="leadingMargin" id="nON-wG-yN6"/>
                             <constraint firstItem="d1m-Rv-CQR" firstAttribute="top" secondItem="sAv-w9-rky" secondAttribute="bottom" constant="15" id="naj-GX-2MK"/>
+                            <constraint firstItem="YCM-va-BXf" firstAttribute="top" secondItem="rfa-xE-bVx" secondAttribute="bottom" constant="30" id="oq2-4S-aFE"/>
                             <constraint firstItem="d1m-Rv-CQR" firstAttribute="leading" secondItem="gY6-bH-RSO" secondAttribute="leadingMargin" id="qD8-Da-qWj"/>
                             <constraint firstItem="15j-Li-31c" firstAttribute="top" secondItem="uR7-Gx-ddV" secondAttribute="bottom" constant="15" id="yjk-1S-tWl"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="AddToFavorites" destination="YCM-va-BXf" id="87Z-mr-e0m"/>
                         <outlet property="gameImage" destination="15j-Li-31c" id="riD-Ik-giw"/>
                         <outlet property="gameName" destination="sAv-w9-rky" id="qdk-4T-6IC"/>
                         <outlet property="gameSummary" destination="rfa-xE-bVx" id="4h8-RF-Mme"/>
                         <outlet property="gameURL" destination="d1m-Rv-CQR" id="6Uu-dL-xps"/>
+                        <outlet property="removeFavorite" destination="PJL-PN-rph" id="UyY-7a-0qY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifz-Rm-7E4" userLabel="First Responder" sceneMemberID="firstResponder"/>

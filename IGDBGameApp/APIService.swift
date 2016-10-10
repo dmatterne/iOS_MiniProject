@@ -88,7 +88,7 @@ class APIService {
         
         
         self.gameArray.append(Games(
-            gameId: idx,
+            gameId: Int64(idx),
             name: namex,
             slug: slugx,
             alternativeName: alternativeNamex,

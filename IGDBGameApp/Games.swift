@@ -11,7 +11,7 @@ import UIKit
 
 struct Games {
 
-    var gameId: Int
+    var gameId: Int64
     var name: String
     var slug: String?
     var alternativeName: String?
