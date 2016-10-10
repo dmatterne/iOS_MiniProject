@@ -19,7 +19,7 @@ class APIService {
         
         gameArray = [Games] ()
         
-        let myUrl = URL(string: basicUrl + "/games/?fields=*&limit=25")
+        let myUrl = URL(string: basicUrl + "/games/?fields=*&limit=25&search=final+fantasy")
         
         var myUrlRequest = URLRequest(url: myUrl!)
         
@@ -60,7 +60,7 @@ class APIService {
     
     func parseGame (g: Dictionary<String,Any>) {
     
-        print(g)
+//        print(g)
         
         let idx = g["id"] as! Int
         let namex = g["name"] as! String
@@ -78,7 +78,6 @@ class APIService {
         let aggregatedRatingx = g["aggregated_rating"] as! Double?
         let ratingCountx = g["rating_count"] as! Int?
         let categoryx = g["category"] as! Int?
-        let pegix = g["pegi"] as! Int?
         
         let coverx = g["cover"] as! Dictionary<String,AnyObject>?
         
@@ -103,7 +102,7 @@ class APIService {
             ratingCount: ratingCountx,
             category: categoryx,
             firstReleaseDate: releaseDatex,
-            pegi: pegix,
+            pegi: nil,
             coverCloudinaryId: coverCloudinaryIdx,
             coverHeight: coverHeightx,
             coverWidth: coverWidthx,

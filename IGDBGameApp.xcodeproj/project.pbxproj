@@ -19,8 +19,9 @@
 		82F40C521DA64DF600362B20 /* Game+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */; };
 		82F40C531DA64DF600362B20 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */; };
 		82F40C551DA6826F00362B20 /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F40C541DA6826F00362B20 /* GameDetailViewController.swift */; };
-		82FB57931DAB8E0D005B4C13 /* Favorites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB57911DAB8E0D005B4C13 /* Favorites+CoreDataClass.swift */; };
-		82FB57941DAB8E0D005B4C13 /* Favorites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB57921DAB8E0D005B4C13 /* Favorites+CoreDataProperties.swift */; };
+		82FB57981DABB779005B4C13 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB57971DABB778005B4C13 /* CollectionViewController.swift */; };
+		82FB57A31DABC8C5005B4C13 /* Favorites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB57A11DABC8C5005B4C13 /* Favorites+CoreDataClass.swift */; };
+		82FB57A41DABC8C5005B4C13 /* Favorites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB57A21DABC8C5005B4C13 /* Favorites+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +39,9 @@
 		82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Game+CoreDataClass.swift"; path = "../Game+CoreDataClass.swift"; sourceTree = "<group>"; };
 		82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Game+CoreDataProperties.swift"; path = "../Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		82F40C541DA6826F00362B20 /* GameDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
-		82FB57911DAB8E0D005B4C13 /* Favorites+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Favorites+CoreDataClass.swift"; path = "../Favorites+CoreDataClass.swift"; sourceTree = "<group>"; };
-		82FB57921DAB8E0D005B4C13 /* Favorites+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Favorites+CoreDataProperties.swift"; path = "../Favorites+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		82FB57971DABB778005B4C13 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		82FB57A11DABC8C5005B4C13 /* Favorites+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Favorites+CoreDataClass.swift"; path = "../Favorites+CoreDataClass.swift"; sourceTree = "<group>"; };
+		82FB57A21DABC8C5005B4C13 /* Favorites+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Favorites+CoreDataProperties.swift"; path = "../Favorites+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				8254B5721DA53F81004E3D29 /* AppDelegate.swift */,
 				8254B5741DA53F81004E3D29 /* ViewController.swift */,
 				8254B5761DA53F81004E3D29 /* Main.storyboard */,
+				82FB57971DABB778005B4C13 /* CollectionViewController.swift */,
 				8254B57C1DA53F81004E3D29 /* Assets.xcassets */,
 				8254B57E1DA53F81004E3D29 /* LaunchScreen.storyboard */,
 				8254B5811DA53F81004E3D29 /* Info.plist */,
@@ -91,8 +94,8 @@
 		82F40C3F1DA62E8000362B20 /* DBFiles */ = {
 			isa = PBXGroup;
 			children = (
-				82FB57911DAB8E0D005B4C13 /* Favorites+CoreDataClass.swift */,
-				82FB57921DAB8E0D005B4C13 /* Favorites+CoreDataProperties.swift */,
+				82FB57A11DABC8C5005B4C13 /* Favorites+CoreDataClass.swift */,
+				82FB57A21DABC8C5005B4C13 /* Favorites+CoreDataProperties.swift */,
 				82F40C501DA64DF600362B20 /* Game+CoreDataClass.swift */,
 				82F40C511DA64DF600362B20 /* Game+CoreDataProperties.swift */,
 			);
@@ -171,15 +174,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82FB57981DABB779005B4C13 /* CollectionViewController.swift in Sources */,
 				82F40C411DA62EB500362B20 /* Games.swift in Sources */,
-				82FB57931DAB8E0D005B4C13 /* Favorites+CoreDataClass.swift in Sources */,
 				8254B5751DA53F81004E3D29 /* ViewController.swift in Sources */,
-				82FB57941DAB8E0D005B4C13 /* Favorites+CoreDataProperties.swift in Sources */,
 				8254B5731DA53F81004E3D29 /* AppDelegate.swift in Sources */,
 				82F40C4B1DA637FE00362B20 /* APIService.swift in Sources */,
 				82F40C551DA6826F00362B20 /* GameDetailViewController.swift in Sources */,
 				82F40C521DA64DF600362B20 /* Game+CoreDataClass.swift in Sources */,
+				82FB57A41DABC8C5005B4C13 /* Favorites+CoreDataProperties.swift in Sources */,
 				8254B57B1DA53F81004E3D29 /* IGDBGameApp.xcdatamodeld in Sources */,
+				82FB57A31DABC8C5005B4C13 /* Favorites+CoreDataClass.swift in Sources */,
 				82F40C531DA64DF600362B20 /* Game+CoreDataProperties.swift in Sources */,
 				82F40C2A1DA62DC800362B20 /* GameListTableViewController.swift in Sources */,
 			);

@@ -23,9 +23,7 @@ class GameDetailViewController: UIViewController {
     
     @IBOutlet weak var removeFavorite: UIButton!
     
-    var favGame: Favorite
-    
-    
+    var favGame: Favorites?
     
     var selectedGame: Games!
     var context: NSManagedObjectContext!
@@ -54,7 +52,20 @@ class GameDetailViewController: UIViewController {
         
         context = del.persistentContainer.viewContext
         // Do any additional setup after loading the view.
+        
+        if let imageId = selectedGame.coverCloudinaryId {
+        
+            if let checkedUrl = URL(string: "https://res.cloudinary.com/igdb/image/upload/t_thumb/" + imageId + ".jpg") {
+                gameImage.contentMode = .scaleAspectFit
+                downloadImage(url: checkedUrl)
+            }
+
+        }
+        
     }
+    
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,7 +115,9 @@ class GameDetailViewController: UIViewController {
             
             } else {
                 
+//                print(res[0].gameId)
                 
+                self.favGame = res[0]
                 
             
             
@@ -145,6 +158,8 @@ class GameDetailViewController: UIViewController {
         let addFav = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context) as! Favorites
         
         addFav.gameId = selectedGame.gameId
+        addFav.name = selectedGame.name
+        addFav.cloudinary_id = selectedGame.coverCloudinaryId!
         addFav.isActive = true
         
       
@@ -152,19 +167,15 @@ class GameDetailViewController: UIViewController {
         
         try context.save()
             
-            self.AddToFavorites.isEnabled = true
-            self.removeFavorite.isEnabled = false
+            self.AddToFavorites.isEnabled = false
+            self.removeFavorite.isEnabled = true
+            favGame = addFav
             
             
         } catch let error {
         
             print(error)
         }
-    
-        
-        
-        
-        
         
     }
     
@@ -172,15 +183,45 @@ class GameDetailViewController: UIViewController {
     
     @IBAction func removeFromFavorites(_ sender: UIButton) {
         
-//        var fav: Favorites
-//        
-//        fav.gameId = selectedGame.gameId
-//        fav.isActive = false
-//        
-//        
-//        context.delete(fav)
+        do {
+            
+            if let test = favGame {
+            
+                context.delete(test)
+                try context.save()
+                
+                self.removeFavorite.isEnabled = false
+                self.AddToFavorites.isEnabled = true
+                
+                
+            }
+        } catch let error {
+        
+            print(error)
+        
+        }
+        
         
         
     }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    func downloadImage(url: URL) {
+        getDataFromUrl(url: url) { (data, response, error)  in
+            DispatchQueue.main.sync() { () -> Void in
+                guard let data = data, error == nil else { return }
+                print(response?.suggestedFilename ?? url.lastPathComponent)
+                self.gameImage.image = UIImage(data: data)
+            }
+        }
+    }
+    
+
    
 }

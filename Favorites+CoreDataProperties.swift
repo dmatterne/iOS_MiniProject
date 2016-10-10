@@ -18,5 +18,7 @@ extension Favorites {
 
     @NSManaged public var gameId: Int64
     @NSManaged public var isActive: Bool
+    @NSManaged public var name: String?
+    @NSManaged public var cloudinary_id: String?
 
 }

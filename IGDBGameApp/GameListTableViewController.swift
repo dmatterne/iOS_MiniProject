@@ -17,6 +17,11 @@ class GameListTableViewController: UITableViewController, URLSessionDelegate, UR
     var gameArray = [Games] ()
     var basicUrl = "https://www.igdb.com/api/v1/games"
     var apiServ = APIService()
+    
+    var refreshCtrl: UIRefreshControl!
+    var task: URLSessionDownloadTask!
+    var session: URLSession!
+    var cache:NSCache<AnyObject, AnyObject>!
 
     override func viewDidLoad() {
         
@@ -41,8 +46,42 @@ class GameListTableViewController: UITableViewController, URLSessionDelegate, UR
         
         
         apiServ.fetchGames(closeFunc: closeFunction)
+        
+        
+        session = URLSession.shared
+        task = URLSessionDownloadTask()
+        
+//        self.refreshCtrl = UIRefreshControl()
+//        self.refreshCtrl.addTarget(self, action: #selector(GameListTableViewController.refreshTableView), for: .valueChanged)
+//        self.refreshControl = self.refreshCtrl
+        
+        
+        self.cache = NSCache()
  
     }
+    
+    
+//    func refreshTableView(){
+//        
+//        let url:URL! = URL(string: "https://itunes.apple.com/search?term=flappy&entity=software")
+//        task = session.downloadTask(with: url, completionHandler: { (location: URL?, response: URLResponse?, error: Error?) -> Void in
+//            
+//            if location != nil{
+//                let data:Data! = try? Data(contentsOf: location!)
+//                do{
+//                    let dic = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as AnyObject
+//                    self.tableData = dic.value(forKey : "results") as? [AnyObject]
+//                    DispatchQueue.main.async(execute: { () -> Void in
+//                        self.tableView.reloadData()
+//                        self.refreshControl?.endRefreshing()
+//                    })
+//                }catch{
+//                    print("something went wrong, try again")
+//                }
+//            }
+//        })
+//        task.resume()
+//    }
     
 
     func closeFunction(array: [Games]) {
@@ -96,22 +135,42 @@ class GameListTableViewController: UITableViewController, URLSessionDelegate, UR
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameListCell", for: indexPath)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameListCell", for: indexPath)
         let curGame = gameArray[indexPath.row]
         
         cell.textLabel?.text = curGame.name
         cell.textLabel?.font = UIFont.systemFont(ofSize: 10.0)
+        cell.imageView?.image = UIImage(named: "cd.jpeg")
         
-//        if let myImage = curGame.cover {
-//        
-//            cell.imageView?.image = myImage
-//        
-//        }
-//        cell.textLabel?.text = games[indexPath.row]
-
-        // Configure the cell...
-
+        if (self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) != nil) {
+            
+            cell.imageView?.image = self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) as? UIImage
+            
+        } else {
+            
+            if let imagecloudid = curGame.coverCloudinaryId {
+            
+                let artworkUrl = "https://res.cloudinary.com/igdb/image/upload/t_thumb/" + imagecloudid + ".jpg"
+                let url:URL! = URL(string: artworkUrl)
+                task = session.downloadTask(with: url, completionHandler: { (location, response, error) -> Void in
+                    if let data = try? Data(contentsOf: url){
+                    
+                        DispatchQueue.main.async(execute: { () -> Void in
+                        
+                            if let updateCell = tableView.cellForRow(at: indexPath) {
+                                let img:UIImage! = UIImage(data: data)
+                                updateCell.imageView?.image = img
+                                self.cache.setObject(img, forKey: (indexPath as NSIndexPath).row as AnyObject)
+                            }
+                        })
+                    }
+                })
+                task.resume()
+            
+            }
+        }
+        
         return cell
     }
     
